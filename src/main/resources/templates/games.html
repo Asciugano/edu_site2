@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Giochi</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+  <ul>
+    <li th:each="game:${games}">
+      <div class="container">
+        <h2 th:text="${game.getTitle()}"></h2>
+        <p th:text="${game.getDescription()}"></p>
+        <a th:href="@{/game/{id}(id=${game.getId()})}">visualizza</a>
+      </div>
+    </li>
+  </ul>
+</body>
+</html>

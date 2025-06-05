@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>${game.getName()}</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Dettagli del gioco</h1>
+    <div th:if="${game != null}">
+      <p><strong>ID: </strong><span th:text="${game.getId()}"></span></p>
+      <p><strong>Nome: </strong><span th:text="${game.getTitle()}"></span></p>
+      <p><strong>Descrizione: </strong><span th:text="${game.getDescription()}"></span></p>
+    </div>
+    <div th:if="${game == null}">
+      <p class="error">Gioco non trovato</p>
+    </div>
+
+    <a th:href="@{${game.getPath()}}">Gioca</a>
+    <a th:href="${game.getUrl()}">Scarica</a>
+    <a th:href="@{/info}">Torna alla lista dei giochi</a>
+  </div>
+</body>
+</html>

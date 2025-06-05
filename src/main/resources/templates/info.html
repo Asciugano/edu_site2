@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Informazioni</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1 class="title">EduGame</h1>
+<div class="container">
+    <h2><strong>Obiettivo del progetto</strong>: </h2>
+    <p class="text">Il progetto si propone di sviluppare e realizzare giochi
+        ludici e didattici pensati per bambini e ragazzi con disabilità, con l’obiettivo di favorire l’inclusione
+        sociale, l’apprendimento e la crescita attraverso il gioco. L’idea è quella di creare un ambiente sicuro,
+        stimolante e accessibile dove ogni giovane, indipendentemente dalla propria disabilità, possa partecipare
+        attivamente e divertirsi mentre sviluppa abilità cognitive, motorie e sociali.</p>
+
+    <h2><strong>Benefici attesi: </strong></h2>
+    <ul class="elenco">
+        <li>Sviluppo cognitivo e motorio: I ragazzi con disabilità potranno migliorare le loro capacità cognitive
+            e motorie attraverso giochi adatti al loro livello di abilità, stimolando l'apprendimento e l’autonomia.</li>
+        <li>Integrazione sociale: Il gioco, essendo un’attività naturale e condivisa tra pari, facilita l’inclusione
+            di ragazzi con disabilità in contesti scolastici, ludici e sociali, permettendo loro di relazionarsi con i
+            coetanei e superare le barriere sociali.</li>
+        <li>Autostima e fiducia: Il superamento di sfide ludiche, l’acquisizione di nuove competenze e la
+            partecipazione a giochi di gruppo aiuteranno i ragazzi a sviluppare una maggiore fiducia in se stessi.</li>
+        <li>Consapevolezza e sensibilizzazione: Il progetto favorirà una maggiore consapevolezza e
+            sensibilizzazione sui temi dell'inclusione e della disabilità, coinvolgendo anche le famiglie e la
+            comunità.</li>
+    </ul>
+
+    <a th:href="@{/games}">Vai al catalogo dei giochi</a>
+</div>
+</body>
+</html>
