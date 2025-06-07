@@ -17,7 +17,7 @@
     <p class="error">Gioco non trovato</p>
   </div>
 
-  <a th:href="@{${game.getPath()}}">Gioca</a>
+  <a th:href="${'/' + game.getPath()}">Gioca</a>
   <a th:href="${game.getUrl()}">Scarica</a>
   <a th:href="@{/games}">Torna alla lista dei giochi</a>
 </div>
