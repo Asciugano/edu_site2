@@ -1,5 +1,5 @@
 let time = 0;
-setInterval(() => {
+let timerID = setInterval(() => {
     time++;
     document.getElementById('tempo').innerHTML = time + 's';
 }, 1000);
@@ -89,6 +89,7 @@ const checkSolution = () => {
         round++;
         main();
     } else {
+        clearInterval(timerID);
         alert('Gioco finito');
         //TODO: aggiungere la schermata finale
     }
