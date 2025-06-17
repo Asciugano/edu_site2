@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>riordina la parola</title>
 </head>
 <body>
-$END$
+    <h1>Risultati</h1>
+    <div>
+        <h2>punti:</h2>
+        <p id="punti"></p>
+    </div>
+    <div>
+        <h2>tempo</h2>
+        <p id="tempo"></p>
+    </div>
+
+    <button onclick="restart()">Ricomincia</button>
+
+    <script>
+        document.querySelector('#punti').innerHTML = localStorage.getItem('punteggio');
+        document.querySelector('#tempo').innerHTML = localStorage.getItem('tempo');
+
+        const restart = () => {
+            localStorage.clear();
+            window.location.href = '../index.html';
+        }
+    </script>
+
 </body>
 </html>

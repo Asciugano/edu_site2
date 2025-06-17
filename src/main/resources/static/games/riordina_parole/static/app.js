@@ -113,6 +113,10 @@ const checkSolution = () => {
     } else {
         clearInterval(timerID);
         alert('Gioco finito');
-        //TODO: aggiungere la schermata finale
+
+        localStorage.setItem('punteggio', punteggio);
+        localStorage.setItem('tempo', time);
+
+        window.location.href = './static/risultati.html'
     }
 };
