@@ -8,7 +8,7 @@ let punteggio = 0;
 let round = 1;
 const maxRound = 3;
 
-const parola = 'test';
+let parola;
 let draggedElement = null;
 
 const parolaContainer = document.querySelector('#parola_container');
@@ -51,7 +51,29 @@ const allowDropZone = (container) => {
 allowDropZone(parolaContainer);
 allowDropZone(rispostaContainer);
 
-function main() {
+async function reader() {
+    return fetch('static/res/source.txt')
+        .then(res => res.text())
+        .then(data => {
+            const righe = data
+                .split('\n')
+                .map(riga => riga.trim())
+                .filter(riga => riga.length > 0);
+
+            const riga_casuale = righe[Math.floor(Math.random() * righe.length)];
+
+            const [parola_letta, img] = riga_casuale.split(',');
+
+            document.querySelector('img').src = img;
+
+            return parola_letta;
+        })
+}
+
+async function main() {
+
+    parola = await reader();
+
     let showParola = shuffleWord(parola)
 
     parolaContainer.innerHTML = '';
@@ -68,7 +90,7 @@ function main() {
     }
 }
 
-main();
+main()
 
 const checkSolution = () => {
     const chrs = rispostaContainer.querySelectorAll('.lettera');
