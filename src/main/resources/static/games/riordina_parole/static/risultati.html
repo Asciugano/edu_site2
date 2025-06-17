@@ -2,30 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>riordina la parola</title>
+    <title>Riordina la parola - Risultati</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f0f4f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-box {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .result-box h2 {
+            margin: 1rem 0 0.5rem;
+            color: #34495e;
+        }
+
+        .result-box p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 0;
+        }
+
+        button {
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-    <h1>Risultati</h1>
-    <div>
-        <h2>punti:</h2>
-        <p id="punti"></p>
-    </div>
-    <div>
-        <h2>tempo</h2>
-        <p id="tempo"></p>
-    </div>
+
+<h1>Risultati</h1>
+
+<div class="result-box">
+    <h2>Punti:</h2>
+    <p id="punti"></p>
+
+    <h2>Tempo:</h2>
+    <p id="tempo"></p>
 
     <button onclick="restart()">Ricomincia</button>
+</div>
 
-    <script>
-        document.querySelector('#punti').innerHTML = localStorage.getItem('punteggio');
-        document.querySelector('#tempo').innerHTML = localStorage.getItem('tempo');
+<script>
+    document.querySelector('#punti').innerHTML = localStorage.getItem('punteggio') || 0;
+    document.querySelector('#tempo').innerHTML = localStorage.getItem('tempo') || '0s';
 
-        const restart = () => {
-            localStorage.clear();
-            window.location.href = '../index.html';
-        }
-    </script>
+    const restart = () => {
+        localStorage.clear();
+        window.location.href = '../index.html';
+    };
+</script>
 
 </body>
 </html>
