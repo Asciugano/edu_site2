@@ -16,15 +16,6 @@ const rispostaContainer = document.querySelector('#risposta_container');
 
 let isSolutionShowed = false;
 
-// const showAlert = (message) => {
-//     document.querySelector('#alert-text').textContent = message;
-//     document.querySelector('#custom-alert').classList.remove('hidden');
-// }
-//
-// const closeAlert = () => {
-//     document.querySelector('#custom-alert').classList.add('hidden');
-// }
-
 const shuffleWord = (parola) => {
     const arr = parola.split('');
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -116,7 +107,6 @@ const checkSolution = () => {
 
     if (parolaUtente === parola) {
         alert("Bravo!!!\nLa parola è GIUSTA!!!");
-        // showAlert("Bravo!!!\nLa parola è GIUSTA!!!");
         punteggio++;
     } else {
         alert("Per poco!\nLa parola non è giusta.");
@@ -128,12 +118,12 @@ const checkSolution = () => {
     } else {
         clearInterval(timerID);
 
-        alert('Gioco finito');
-
         localStorage.setItem('punteggio', punteggio);
         localStorage.setItem('tempo', time);
 
-        window.location.href = './static/risultati.html'
+        alert("Gioco finito");
+
+        window.location.href = './static/risultati.html';
     }
 };
 
