@@ -14,6 +14,8 @@ let draggedElement = null;
 const parolaContainer = document.querySelector('#parola_container');
 const rispostaContainer = document.querySelector('#risposta_container');
 
+let isSolutionShowed = false;
+
 const shuffleWord = (parola) => {
     const arr = parola.split('');
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -76,6 +78,9 @@ async function main() {
 
     let showParola = shuffleWord(parola)
 
+    if(isSolutionShowed)
+        document.querySelector('#solution').innerHTML = parola;
+
     parolaContainer.innerHTML = '';
     rispostaContainer.innerHTML = '';
     document.querySelector('#check_solution_btn').classList.add('hidden');
@@ -120,3 +125,9 @@ const checkSolution = () => {
         window.location.href = './static/risultati.html'
     }
 };
+
+
+const showSolution = () => {
+    isSolutionShowed = !isSolutionShowed;
+    document.querySelector('#solution').innerHTML = isSolutionShowed ? parola : '';
+}
