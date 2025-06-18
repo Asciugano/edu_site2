@@ -126,8 +126,46 @@ const checkSolution = () => {
     }
 };
 
-
 const showSolution = () => {
     isSolutionShowed = !isSolutionShowed;
     document.querySelector('#solution').innerHTML = isSolutionShowed ? parola : '';
 }
+
+document.addEventListener('keydown', (e) => {
+    const keyPress = e.key.toLowerCase();
+
+    if(e.key === 'Enter') {
+        if(rispostaContainer.querySelectorAll('.lettera').length === parola.length)
+            checkSolution();
+
+        return;
+    }
+
+    if(e.key === 'Backspace') {
+        const lettereInserite = rispostaContainer.querySelectorAll('.lettera');
+        const ultimaLettera = lettereInserite[lettereInserite.length - 1];
+        if(ultimaLettera) {
+            parolaContainer.appendChild(ultimaLettera);
+
+            if(!document.querySelector('#check_solution_btn').classList.contains('hidden')) {
+                document.querySelector('#check_solution_btn').classList.add('hidden');
+            }
+        }
+
+        e.preventDefault();
+    }
+
+    if(!/^[a-z]$/.test(keyPress)) return ;
+
+    const possibleKeys = Array.from(parolaContainer.querySelectorAll('.lettera'));
+
+    const divToMove = possibleKeys.find(div => div.textContent.toLowerCase() === keyPress);
+
+    if(divToMove) {
+        rispostaContainer.appendChild(divToMove);
+
+        if(rispostaContainer.querySelectorAll('.lettera').length === parola.length) {
+            document.querySelector('#check_solution_btn').classList.remove('hidden');
+        }
+    }
+})
