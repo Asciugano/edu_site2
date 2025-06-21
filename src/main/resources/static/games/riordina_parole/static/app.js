@@ -52,7 +52,7 @@ let timerID = setInterval(() => {
 
 let punteggio = 0;
 let round = 1;
-const maxRound = 3;
+const maxRound = 10;
 
 let parola;
 let draggedElement = null;
@@ -166,6 +166,7 @@ const checkSolution = async () => {
 
         localStorage.setItem('punteggio', punteggio);
         localStorage.setItem('tempo', time);
+        localStorage.setItem('max-round', maxRound);
 
         await alert("Gioco finito");
 

@@ -76,8 +76,8 @@
 </div>
 
 <script>
-    document.querySelector('#punti').innerHTML = localStorage.getItem('punteggio') || 0;
-    document.querySelector('#tempo').innerHTML = localStorage.getItem('tempo') || '0s';
+    document.querySelector('#punti').innerHTML = localStorage.getItem('punteggio') + '/' + localStorage.getItem('max-round') || 0;
+    document.querySelector('#tempo').innerHTML = localStorage.getItem('tempo') + 's' || '0s';
 
     const restart = () => {
         localStorage.clear();
