@@ -44,31 +44,46 @@ window.alert = (msg, timeout = 2000) => {
     });
 };
 
+const checkSolution = async (img) => {
+    if(img.src === immagine_giusta) {
+        await alert('Corretto');
+        punteggio++;
+    }
+    else {
+        await alert('Sbagliato');
+    }
+
+    if(round < maxRound) {
+        round++;
+        main();
+    }
+    else {
+        clearInterval(timerID);
+
+        localStorage.setItem('punteggio', punteggio);
+        localStorage.setItem('tempo', time);
+        localStorage.setItem('max-round', maxRound);
+
+        await alert('Gioco finito');
+
+        window.location.href = './static/risultati.html';
+    }
+}
+
+document.addEventListener('keydown', async (e) => {
+    if(alertOpen) return;
+
+    if(e.key === 'ArrowLeft') {
+        await checkSolution(document.querySelector('#img1'));
+    }
+    if(e.key === 'ArrowRight') {
+        await checkSolution(document.querySelector('#img2'));
+    }
+})
+
 document.querySelectorAll('img').forEach(img => {
     img.addEventListener('click', async e => {
-        if(img.src === immagine_giusta) {
-            await alert('Corretto');
-            punteggio++;
-        }
-        else {
-            await alert('Sbagliato');
-        }
-
-        if(round < maxRound) {
-            round++;
-            main();
-        }
-        else {
-            clearInterval(timerID);
-
-            localStorage.setItem('punteggio', punteggio);
-            localStorage.setItem('tempo', time);
-            localStorage.setItem('max-round', maxRound);
-
-            await alert('Gioco finito');
-
-            window.location.href = './static/risultati.html';
-        }
+        await checkSolution(img);
     })
 });
 
