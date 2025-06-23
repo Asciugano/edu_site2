@@ -94,7 +94,7 @@ let timerID = setInterval(() => {
 }, 1000);
 
 
-const maxRound = 3;
+const maxRound = 10;
 let round = 1;
 let punteggio = 0;
 
@@ -111,9 +111,12 @@ function main() {
 
             const riga_casuale = righe[Math.floor(Math.random() * righe.length)];
 
-            const [imgPochi, imgTanti, parola] = riga_casuale.split(',');
+            const [imgPochi, imgTanti, parola, finale] = riga_casuale.split(',');
 
-            let tanti_pochi = Math.random() < 0.5 ? 'poche ' : 'tante ';
+
+            let tanti_pochi = Math.random() < 0.5 ? 'poch' : 'tant';
+            tanti_pochi += finale + ' ';
+
             immagine_giusta = tanti_pochi === 'poche ' ? imgPochi : imgTanti;
 
             document.querySelector('#img1').src = Math.random() < 0.5 ? imgTanti : imgPochi;
