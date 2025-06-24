@@ -60,7 +60,7 @@ button:hover {
     justify-content: center;
 }
 
-.lettera {
+.item {
     padding: 0.8rem;
     background-color: #ecf0f1;
     border-radius: 8px;
@@ -142,4 +142,11 @@ a {
 a:hover {
     transform: scale(1.05);
     box-shadow: 0 0 12px rgba(0, 191, 255, 0.6);
+}
+
+.result-box p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 0;
 }

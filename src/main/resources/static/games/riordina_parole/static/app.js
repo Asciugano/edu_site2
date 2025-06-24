@@ -89,7 +89,7 @@ const allowDropZone = (container) => {
         e.preventDefault();
         if(draggedElement){
             container.appendChild(draggedElement);
-            if(rispostaContainer.querySelectorAll('.lettera').length === parola.length) {
+            if(rispostaContainer.querySelectorAll('.item').length === parola.length) {
                 document.querySelector('#check_solution_btn').classList.remove('hidden');
             }
         }
@@ -133,7 +133,7 @@ async function main() {
 
     for(let chr of showParola) {
         const div = document.createElement('div');
-        div.classList.add('lettera');
+        div.classList.add('item');
         div.textContent = chr;
         div.setAttribute('draggable', true);
         setupDragEvents(div);
@@ -144,11 +144,11 @@ async function main() {
 main()
 
 const checkSolution = async () => {
-    const chrs = rispostaContainer.querySelectorAll('.lettera');
+    const chrs = rispostaContainer.querySelectorAll('.item');
     let parolaUtente = '';
 
-    chrs.forEach(lettera => {
-        parolaUtente += lettera.textContent;
+    chrs.forEach(item => {
+        parolaUtente += item.textContent;
     });
 
     if (parolaUtente === parola) {
@@ -185,14 +185,14 @@ document.addEventListener('keydown', (e) => {
     const keyPress = e.key.toLowerCase();
 
     if(e.key === 'Enter') {
-        if(rispostaContainer.querySelectorAll('.lettera').length === parola.length)
+        if(rispostaContainer.querySelectorAll('.item').length === parola.length)
             checkSolution();
 
         return;
     }
 
     if(e.key === 'Backspace') {
-        const lettereInserite = rispostaContainer.querySelectorAll('.lettera');
+        const lettereInserite = rispostaContainer.querySelectorAll('.item');
         const ultimaLettera = lettereInserite[lettereInserite.length - 1];
         if(ultimaLettera) {
             parolaContainer.appendChild(ultimaLettera);
@@ -207,14 +207,14 @@ document.addEventListener('keydown', (e) => {
 
     if(!/^[a-z]$/.test(keyPress)) return ;
 
-    const possibleKeys = Array.from(parolaContainer.querySelectorAll('.lettera'));
+    const possibleKeys = Array.from(parolaContainer.querySelectorAll('.item'));
 
     const divToMove = possibleKeys.find(div => div.textContent.toLowerCase() === keyPress);
 
     if(divToMove) {
         rispostaContainer.appendChild(divToMove);
 
-        if(rispostaContainer.querySelectorAll('.lettera').length === parola.length) {
+        if(rispostaContainer.querySelectorAll('.item').length === parola.length) {
             document.querySelector('#check_solution_btn').classList.remove('hidden');
         }
     }
