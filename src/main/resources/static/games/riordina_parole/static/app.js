@@ -147,8 +147,8 @@ const checkSolution = async () => {
     const chrs = rispostaContainer.querySelectorAll('.item');
     let parolaUtente = '';
 
-    chrs.forEach(item => {
-        parolaUtente += item.textContent;
+    chrs.forEach(lettera => {
+        parolaUtente += lettera.textContent;
     });
 
     if (parolaUtente === parola) {
@@ -170,7 +170,7 @@ const checkSolution = async () => {
 
         await alert("Gioco finito");
 
-        window.location.href = './static/risultati.html';
+        window.location.href = '../risultati.html';
     }
 };
 

@@ -66,7 +66,7 @@ const checkSolution = async (img) => {
 
         await alert('Gioco finito');
 
-        window.location.href = './static/risultati.html';
+        window.location.href = '../risultati.html';
     }
 }
 
