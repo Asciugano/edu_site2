@@ -167,6 +167,7 @@ const checkSolution = async () => {
         localStorage.setItem('punteggio', punteggio);
         localStorage.setItem('tempo', time);
         localStorage.setItem('max-round', maxRound);
+        localStorage.setItem('path', './riordina_parole/index.html');
 
         await alert("Gioco finito");
 

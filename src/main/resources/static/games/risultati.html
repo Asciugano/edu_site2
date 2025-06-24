@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tanti Pochi - Risultati</title>
+    <title>Risultati</title>
     <link rel="stylesheet" href="result_style.css">
+    <link rel="shortcut icon" href="../icon/icon.png" type="image/x-icon">
 </head>
 <body>
 
@@ -26,8 +27,8 @@
     document.querySelector('#tempo').innerHTML = localStorage.getItem('tempo') + 's' || '0s';
 
     const restart = () => {
+        window.location.href = localStorage.getItem('path');
         localStorage.clear();
-        window.location.href = 'tanti_pochi/index.html';
     };
 </script>
 
