@@ -56,7 +56,14 @@ let punti = 0;
 
 const container = document.querySelector('.container')
 
-const checkSolution = async (btn) => {
+const checkSolution = async (risposta) => {
+    if(risposta === soluzione) {
+        punti++;
+        await alert('Corretto');
+    }
+    else {
+        await alert('Sbagliato');
+    }
     if(round < maxRound) {
         main();
         round++;
@@ -75,24 +82,68 @@ const checkSolution = async (btn) => {
     }
 }
 
+let soluzione = null;
+
 const main = async () => {
     container.querySelectorAll('button').forEach(button => container.removeChild(button));
-    for(let i = 0; i < 4; i++) {
+
+    const res = await fetch('static/res/source.txt');
+    const data = await res.text();
+
+    const righe = data
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0);
+
+    const rigaCasuale = righe[Math.floor(Math.random() * righe.length)];
+    const [img, img_domanda, risposta] = rigaCasuale.split(',');
+
+    document.querySelector('#img').src = img;
+    let btn_img = img_domanda;
+    soluzione = risposta.trim();
+    const solInt = parseInt(soluzione);
+
+    const posizione_corretta = Math.floor(Math.random() * 4);
+
+    let numeri_possibili = [];
+    let moltiplicatore = soluzione < 2 ? 4 : soluzione >= 4 ? 1 : 2;
+    for (let i = 1; i <= solInt * moltiplicatore; i++) {
+        if (i !== solInt) numeri_possibili.push(i);
+    }
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    shuffle(numeri_possibili);
+
+
+    for (let i = 0; i < 4; i++) {
         const button = document.createElement('button');
 
         const img = document.createElement('img');
-        img.src = '#';
+        img.src = btn_img;
+        img.style.height = '50px';
+        img.style.width = '50px';
 
         button.appendChild(img);
 
         const p = document.createElement('p');
-        p.textContent = i + 1;
+        if (i === posizione_corretta) {
+            p.textContent = soluzione;
+        } else {
+            p.textContent = numeri_possibili.pop().toString();
+        }
         button.appendChild(p);
 
-        button.onclick = () => checkSolution(button);
+        button.onclick = () => checkSolution(button.querySelector('p').textContent);
 
         container.appendChild(button);
     }
-}
+};
+
 
 main();

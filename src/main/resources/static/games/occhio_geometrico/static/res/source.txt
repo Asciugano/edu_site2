@@ -1,1 +1,4 @@
-img,img(domanda),risposta
+./static/res/img1.png,https://i.pinimg.com/736x/be/d7/0c/bed70c57ae6560f5cdfec5c7a7e95ae7.jpg,3
+./static/res/img1.png,https://i.pinimg.com/736x/e2/e3/7f/e2e37ffe604ec228b50df674ba6553b1.jpg,5
+./static/res/img1.png,https://i.pinimg.com/736x/52/60/b2/5260b2edbce8baadee7151cc15809fda.jpg,4
+./static/res/img1.png,https://i.pinimg.com/736x/ff/55/ab/ff55ab311f511516a309f31350250f5a.jpg,1
