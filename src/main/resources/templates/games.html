@@ -2,12 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Giochi</title>
   <link rel="stylesheet" th:href="@{/css/style.css}">
   <link rel="shortcut icon" th:href="@{/icon/icon.png}" type="image/x-icon">
 </head>
 <body>
-  <ul>
+  <h1 class="title">Giochi</h1>
+  <ul class="elenco">
     <li th:each="game:${games}">
       <div class="container">
         <h2 th:text="${game.getTitle()}"></h2>
@@ -17,6 +20,6 @@
     </li>
   </ul>
 
-  <a th:href="@{info}">Vai alle info</a>
+  <a th:href="@{info}" class="footer-link">Vai alle info</a>
 </body>
 </html>

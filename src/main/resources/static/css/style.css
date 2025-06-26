@@ -3,11 +3,9 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0 1rem;
     min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .container {
@@ -16,19 +14,23 @@ body {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     padding: 20px;
     max-width: 400px;
+    width: 100%;
     text-align: center;
-    margin: 20px;
+    margin: 20px auto;
+    box-sizing: border-box;
 }
 
 h1 {
     color: #2ecc71;
     margin-bottom: 15px;
+    font-size: 2rem;
 }
 
 p {
     font-size: 1.1em;
     margin: 10px 0;
     color: #333;
+    line-height: 1.4;
 }
 
 a {
@@ -36,27 +38,44 @@ a {
     margin-top: 15px;
     background-color: #2ecc71;
     color: #fff;
-    padding: 8px 15px;
+    padding: 10px 18px;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s;
-}
-
-h2 {
-    display: inline-block;
-}
-
-.elenco {
-    list-style-type: circle;
-    text-align: left;
-}
-
-.elenco li {
-    margin: 5px;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 a:hover {
     background-color: #27ae60;
+}
+
+h2 {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ELENCO SENZA PALLINI */
+.elenco {
+    text-align: left;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.elenco li {
+    list-style: none;
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+ul {
+    text-align: left;
+}
+
+li {
+    margin: 5% auto;
 }
 
 .error {
@@ -64,29 +83,60 @@ a:hover {
     font-weight: bold;
 }
 
-ul {
-    list-style-type: none;
-}
-
 .title {
     text-align: center;
     margin-top: 2%;
     margin-bottom: 10%;
     font-weight: bolder;
-    font-size: xxx-large;
+    font-size: 2.5rem;
 }
 
-.null {
-    position: absolute;
-    top: 10%;
-    height: 7%;
-    width: 100%;
+/* Responsive */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p, .elenco li {
+        font-size: 1rem;
+    }
+
+    a {
+        padding: 8px 14px;
+        font-size: 0.95rem;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 8%;
+    }
 }
 
-.text {
-    text-align: left;
+.footer-link {
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;  /* più grande */
+    margin: 30px auto 20px auto;
+    background-color: #2ecc71;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    width: max-content;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
 }
 
-.info {
-    width: 50%;
+.footer-link:hover {
+    background-color: #27ae60;
 }
