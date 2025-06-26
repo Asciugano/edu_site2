@@ -77,6 +77,27 @@ const setupDragEvents = (div) => {
         draggedElement = div;
         e.dataTransfer.effectAllowed = 'move';
     });
+
+    div.addEventListener('touchstart', (e) => {
+        draggedElement = div;
+        draggedElement.classList.add('dragging');
+    });
+
+    div.addEventListener('touchend', (e) => {
+        const touch = e.changedTouches[0];
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+
+        if(target && (target.id === 'parola_container' || target.id === 'risposta_container')) {
+            target.appendChild(draggedElement);
+
+            if(rispostaContainer.querySelectorAll('.item').length === parola.length) {
+                document.querySelector('#check_solution_btn').classList.remove('hidden');
+            }
+        }
+
+        draggedElement.classList.remove('dragging');
+        draggedElement = null;
+    });
 };
 
 const allowDropZone = (container) => {

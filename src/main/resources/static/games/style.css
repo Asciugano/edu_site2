@@ -9,6 +9,11 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    touch-action: none;
 }
 
 #tempo {
@@ -149,4 +154,9 @@ a:hover {
     font-weight: bold;
     color: #27ae60;
     margin: 0;
+}
+
+.item.dragging {
+    opacity: 0.5;
+    transform: scale(1.1);
 }
