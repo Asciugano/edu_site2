@@ -69,6 +69,13 @@ const shuffleFrase = async (frase) => {
   }
 }
 
+let isShowedSolution = false;
+const showSolution = () => {
+  isShowedSolution = !isShowedSolution;
+
+  document.querySelector('#solution').innerHTML = isShowedSolution ? soluzione.join('').replaceAll(',', '') : '';
+}
+
 const setupDragEvents = (div) => {
   div.addEventListener('dragstart', (e) => {
     draggedElement = div;
@@ -153,6 +160,8 @@ const main = async () => {
   frase_container.innerHTML = '';
   risposta_container.innerHTML = '';
   document.querySelector('#check-solution-btn').classList.add('hidden');
+
+  document.querySelector('#solution').innerHTML = isShowedSolution ? soluzione.join('').replaceAll(',', '') : '';
 
   await fetch('./static/res/source.txt')
     .then(res => res.text())
