@@ -54,6 +54,7 @@ const maxRound = 3;
 let round = 1;
 let punti = 0;
 
+let soluzione = [];
 let frase = [];
 
 const frase_container = document.querySelector('#frase-container');
@@ -116,6 +117,38 @@ const allowDropZone = (container) => {
 allowDropZone(frase_container);
 allowDropZone(risposta_container);
 
+const checkSolution = async () => {
+  const user_input = risposta_container.querySelectorAll('.item');
+  let err = false;
+  user_input.forEach((item, i) => {
+    if (item.textContent !== soluzione[i]) {
+      err = true;
+      alert('Sbagliato')
+    }
+  });
+  if (!err) {
+    alert('Giusto');
+    punti++;
+  }
+
+  if (round < maxRound) {
+    round++;
+    main();
+  }
+  else {
+    clearInterval(timerID);
+
+    localStorage.setItem('punteggio', punti);
+    localStorage.setItem('tempo', time);
+    localStorage.setItem('max-round', maxRound);
+    localStorage.setItem('path', './frasi_scombussolate/index.html');
+
+    alert("Gioco finito");
+
+    window.location.href = '../risultati.html';
+  }
+}
+
 const main = async () => {
   frase_container.innerHTML = '';
   risposta_container.innerHTML = '';
@@ -132,6 +165,7 @@ const main = async () => {
       const riga_casuale = righe[Math.floor(Math.random() * righe.length)];
 
       frase = riga_casuale.split(',');
+      soluzione = riga_casuale.split(',')
     });
   shuffleFrase(frase);
 
@@ -144,6 +178,6 @@ const main = async () => {
 
     frase_container.appendChild(div);
   });
-}
+};
 
 main();
