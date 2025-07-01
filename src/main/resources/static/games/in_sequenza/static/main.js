@@ -87,7 +87,7 @@ const setupDragEvents = (div) => {
     if (target && (target.id === 'img-container' || target.id === 'soluzione-container')) {
       target.appendChild(draggedElement);
 
-      if (rispostaContainer.querySelectorAll('div').length === soluzione.length) {
+      if (soluzione_container.querySelectorAll('div').length === soluzione.length) {
         document.querySelector('#check-solution-btn').classList.remove('hidden');
       }
     }
@@ -107,7 +107,7 @@ const allowDropZone = (container) => {
     e.preventDefault();
     if (draggedElement) {
       container.appendChild(draggedElement);
-      if (rispostaContainer.querySelectorAll('div').length === soluzione.length) {
+      if (soluzione_container.querySelectorAll('div').length === soluzione.length) {
         document.querySelector('#check-solution-btn').classList.remove('hidden');
       }
     }
@@ -120,8 +120,20 @@ const imgs_container = document.querySelector('#img-container');
 allowDropZone(soluzione_container);
 allowDropZone(imgs_container);
 
-const check_solution = () => {
-  alert('solutione: ' + soluzione);
+const check_solution = async () => {
+  let err = false;
+  soluzione_container.querySelectorAll('img').forEach(async (item, i) => {
+    if (item.src !== soluzione[i]) {
+      console.log(soluzione[i]);
+      err = true;
+      await alert('Sbagliato')
+    }
+  });
+
+  if (!err) {
+    punti++;
+    await alert('Giusto');
+  }
 
   if (round < maxRound) {
     round++;
@@ -135,7 +147,7 @@ const check_solution = () => {
     localStorage.setItem('max-round', maxRound);
     localStorage.setItem('path', 'in_sequenza/index.html');
 
-    alert('Gioco finito');
+    await alert('Gioco finito');
 
     window.location.href = '../risultati.html';
   }
