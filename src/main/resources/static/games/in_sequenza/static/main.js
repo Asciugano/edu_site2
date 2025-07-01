@@ -143,8 +143,8 @@ const check_solution = () => {
 
 const main = async () => {
 
-  imgs_container.querySelectorAll('div').forEach(item => document.removeChild(item));
-  soluzione_container.querySelectorAll('div').forEach(item => document.removeChild(item));
+  imgs_container.querySelectorAll('div').forEach(item => imgs_container.removeChild(item));
+  soluzione_container.querySelectorAll('div').forEach(item => soluzione_container.removeChild(item));
 
   await fetch('./static/res/source.txt')
     .then(res => res.text())
@@ -171,8 +171,10 @@ const main = async () => {
     const img = document.createElement('img');
     img.src = item;
     img.alt = document.querySelector('h2').textContent;
+    img.style.height = '200px';
+    img.style.width = '200px';
 
-    div.appendChild(img)
+    div.appendChild(img);
 
     imgs_container.appendChild(div);
   });
