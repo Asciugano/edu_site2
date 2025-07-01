@@ -158,6 +158,8 @@ const main = async () => {
   imgs_container.querySelectorAll('div').forEach(item => imgs_container.removeChild(item));
   soluzione_container.querySelectorAll('div').forEach(item => soluzione_container.removeChild(item));
 
+  document.querySelector('#check-solution-btn').classList.add('hidden');
+
   await fetch('./static/res/source.txt')
     .then(res => res.text())
     .then((data) => {
