@@ -109,6 +109,7 @@ async function main() {
     parole.forEach(parola => {
       const p = document.createElement('p');
       p.textContent = parola;
+      p.addEventListener('click', () => checkSolution(p));
 
       parole_container.appendChild(p);
     });
