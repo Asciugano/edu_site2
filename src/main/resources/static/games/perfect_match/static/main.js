@@ -59,13 +59,14 @@ const parole_container = document.querySelector('#parole-container');
 
 let parole = [];
 let soluzione = '';
+let imgSrc = '';
 
 function checkSolution(parola) {
   tentativi++;
   if (parola.textContent === soluzione) {
     alert('Corretto');
     punti++;
-    parole_container.querySelectorAll('p').forEach(item => {
+    parole_container.querySelectorAll('.item').forEach(item => {
       if (item === parola) {
         parole_container.removeChild(item);
       }
@@ -107,8 +108,9 @@ async function main() {
       });
 
     parole.forEach(parola => {
-      const p = document.createElement('p');
+      const p = document.createElement('.item');
       p.textContent = parola;
+      p.classList.add('item');
       p.addEventListener('click', () => checkSolution(p));
 
       parole_container.appendChild(p);
@@ -129,7 +131,8 @@ async function main() {
         .filter(riga => riga.length > 0);
 
       const riga_casuale = righe[Math.floor(Math.random() * righe.length)];
-      const [imgSrc, parola] = riga_casuale.split(',');
+      const [img, parola] = riga_casuale.split(',');
+      imgSrc = img;
       soluzione = parola;
     });
 
@@ -137,3 +140,5 @@ async function main() {
   img.src = imgSrc;
   img_container.appendChild(img);
 }
+
+main();
