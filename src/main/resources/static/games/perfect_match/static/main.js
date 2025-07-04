@@ -108,7 +108,7 @@ async function main() {
       });
 
     parole.forEach(parola => {
-      const p = document.createElement('.item');
+      const p = document.createElement('p');
       p.textContent = parola;
       p.classList.add('item');
       p.addEventListener('click', () => checkSolution(p));
@@ -118,7 +118,7 @@ async function main() {
   };
 
   if (parole.length <= 0) {
-    getParole();
+    await getParole();
     maxRound = parole.length;
   }
 
