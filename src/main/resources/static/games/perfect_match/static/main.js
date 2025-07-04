@@ -50,8 +50,89 @@ let timerID = setInterval(() => {
   document.getElementById('tempo').innerHTML = time + 's';
 }, 1000);
 
-let punteggio = 0;
+let punti = 0;
 let round = 1;
-const maxRound = 3;
+let tentativi = 0;
 
-alert('test')
+const img_container = document.querySelector('#img-container');
+const parole_container = document.querySelector('#parole-container');
+
+let parole = [];
+let soluzione = '';
+
+function checkSolution(parola) {
+  tentativi++;
+  if (parola.textContent === soluzione) {
+    alert('Corretto');
+    punti++;
+    parole_container.querySelectorAll('p').forEach(item => {
+      if (item === parola) {
+        parole_container.removeChild(item);
+      }
+    });
+  }
+  else {
+    alert('Sbagliato');
+  }
+
+  if (round < maxRound) {
+    round++;
+    main();
+  }
+  else {
+    clearInterval(timerID);
+
+    localStorage.setItem('punteggio', punti);
+    localStorage.setItem('tempo', time);
+    localStorage.setItem('max-round', tentativi);
+    localStorage.setItem('path', './perfect_match/index.html');
+
+    alert("Gioco finito");
+
+    window.location.href = '../risultati.html';
+  }
+}
+
+async function main() {
+  img_container.querySelectorAll('img').forEach(item => img_container.removeChild(item));
+
+  const getParole = async () => {
+    await fetch('./static/res/parole.txt')
+      .then(res => res.text())
+      .then(data => {
+        parole = data
+          .split('\n')
+          .map(parola => parola.trim())
+          .filter(parola => parola.length > 0);
+      });
+
+    parole.forEach(parola => {
+      const p = document.createElement('p');
+      p.textContent = parola;
+
+      parole_container.appendChild(p);
+    });
+  };
+
+  if (parole.length <= 0) {
+    getParole();
+    maxRound = parole.length;
+  }
+
+  await fetch('./static/res/source.txt')
+    .then(res => res.text())
+    .then((data) => {
+      const righe = data
+        .split('\n')
+        .map(riga => riga.trim())
+        .filter(riga => riga.length > 0);
+
+      const riga_casuale = righe[Math.floor(Math.random() * righe.length)];
+      const [imgSrc, parola] = riga_casuale.split(',');
+      soluzione = parola;
+    });
+
+  const img = document.createElement('img');
+  img.src = imgSrc;
+  img_container.appendChild(img);
+}
