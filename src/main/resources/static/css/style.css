@@ -20,6 +20,10 @@ body {
     box-sizing: border-box;
 }
 
+.text {
+  max-width: 800px;
+}
+
 h1 {
     color: #2ecc71;
     margin-bottom: 15px;
@@ -31,11 +35,13 @@ p {
     margin: 10px 0;
     color: #333;
     line-height: 1.4;
+    text-align: left;
 }
 
-a {
+a:not(.email) {
     display: inline-block;
     margin-top: 15px;
+    margin-left: 15px;
     background-color: #2ecc71;
     color: #fff;
     padding: 10px 18px;
@@ -46,7 +52,7 @@ a {
     font-size: 1rem;
 }
 
-a:hover {
+a:not(.email):hover {
     background-color: #27ae60;
 }
 
@@ -56,7 +62,6 @@ h2 {
     margin-bottom: 1rem;
 }
 
-/* ELENCO SENZA PALLINI */
 .elenco {
     text-align: left;
     padding-left: 0;
@@ -89,9 +94,9 @@ li {
     margin-bottom: 5%;
     font-weight: bolder;
     font-size: 2.5rem;
+    cursor: pointer;
 }
 
-/* Responsive */
 @media (max-width: 480px) {
     h1 {
         font-size: 1.6rem;
@@ -123,10 +128,10 @@ li {
 }
 
 .footer-link {
-    display: block;
+    display: inline-block;
     text-align: center;
-    font-size: 1.2rem;  /* più grande */
-    margin: 30px auto 20px auto;
+    font-size: 1.2rem;
+    margin: 30px 15px;
     background-color: #2ecc71;
     color: white;
     padding: 12px 20px;
@@ -135,8 +140,56 @@ li {
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s;
+    text-align: center;
 }
 
 .footer-link:hover {
     background-color: #27ae60;
+}
+
+.footer-link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contatti-roulo {
+  font-size: 0.9rem;
+  color: #aaa;
+  display: inline-block;
+  margin-top: 2px;
+  margin-bottom: 3px;
+}
+
+.email {
+  font-size: 1rem;
+  color: #2ecc71;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 36px;
+  transition: color 0.3s ease;
+}
+
+.email:hover {
+  color: #27ae60;
+  text-decoration: underline;
+}
+
+.contatto {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+.contatto h3 {
+  font-size: 1.4rem;
+  margin-top: 5px;
+  margin-bottom: 1.5px;
+  color: #2c3e50;
 }

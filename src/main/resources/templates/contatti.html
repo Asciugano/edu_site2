@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Giochi</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="shortcut icon" th:href="@{/icon/icon.png}" type="image/x-icon">
   </head>
   <body>
-    <h1 class="title">Giochi</h1>
-    <ul class="elenco">
-      <li th:each="game:${games}">
-        <div class="container">
-          <h2 th:text="${game.getTitle()}"></h2>
-          <p th:text="${game.getDescription()}"></p>
-          <a th:href="@{/game/{id}(id=${game.getId()})}">visualizza</a>
-        </div>
-      </li>
-    </ul>
+    <h1 class="title">Ecco i nostri contatti</h1>
+
+    <div class="container">
+      <div class="contatto">
+        <h3>Diaferio Samuele <span class="contatti-roulo">(Programmatore)</span></h3>
+        <h6 class="contatti-roulo">(contattare in caso di problemi o bug)</h6>
+        <a href="mailto:diaferiosamuele@gmail.com" class="email">diaferiosamuele@gmail.com</a>
+      </div>
+    </div>
 
     <div class="footer-link-container">
       <a th:href="@{info}" class="footer-link">Vai alle info</a>
-      <a th:href="@{contatti}" class="footer-link">Vai ai contatti</a>
+      <a th:href="@{games}" class="footer-link">Vai ai giochi</a>
     </div>
 
     <script th:src="@{/js/main.js}"></script>

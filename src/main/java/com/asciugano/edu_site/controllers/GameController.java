@@ -61,4 +61,9 @@ public class GameController {
         model.addAttribute("game", game);
         return game.getPath();
     }
+
+    @GetMapping("/contatti")
+    public String goContatti() {
+      return "contatti";
+    }
 }
