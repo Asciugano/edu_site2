@@ -123,8 +123,10 @@ allowDropZone(imgs_container);
 const check_solution = async () => {
   let err = false;
   soluzione_container.querySelectorAll('img').forEach(async (item, i) => {
-    if (item.src !== soluzione[i]) {
-      console.log(soluzione[i]);
+    const name_img = soluzione[i].split('/')
+    const src = item.src.split('/')
+    console.log(name_img[name_img.length - 1] + ' ' + src[src.length - 1])
+    if (src[src.length - 1] !== name_img[name_img.length - 1]) {
       err = true;
       await alert('Sbagliato')
     }
