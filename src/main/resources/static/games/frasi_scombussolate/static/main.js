@@ -50,7 +50,7 @@ let timerID = setInterval(() => {
   document.querySelector('#tempo').innerHTML = time + 's';
 }, 1000);
 
-const maxRound = 3;
+const maxRound = 5;
 let round = 1;
 let punti = 0;
 
