@@ -1,1 +1,8 @@
-https://plus.unsplash.com/premium_photo-1724249990837-f6dfcb7f3eaa?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,https://images.unsplash.com/photo-1623428207962-48bcb364d5dc?q=80&w=1048&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,https://media.istockphoto.com/id/119104612/it/foto/torsolo-di-mela-isolato-su-bianco.jpg?s=1024x1024&w=is&k=20&c=UuWqaZ2gwmL6j5V012eZJSGVCWJSMmYaywwksVcVA6U=,mela 
+https://plus.unsplash.com/premium_photo-1724249990837-f6dfcb7f3eaa?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,https://images.unsplash.com/photo-1623428207962-48bcb364d5dc?q=80&w=1048&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,https://media.istockphoto.com/id/119104612/it/foto/torsolo-di-mela-isolato-su-bianco.jpg?s=1024x1024&w=is&k=20&c=UuWqaZ2gwmL6j5V012eZJSGVCWJSMmYaywwksVcVA6U=,MELA 
+./static/res/img/palloncino1.png,./static/res/img/palloncino2.png,./static/res/img/palloncino3.png,PALLONCINO
+./static/res/img/pettinare1.png,./static/res/img/pettinare2.png,./static/res/img/pettinare3.png,PETTINARE
+./static/res/img/torta1.png,./static/res/img/torta2.png,./static/res/img/torta3.png,TORTA
+./static/res/img/bere1.png,./static/res/img/bere2.png,./static/res/img/bere3.png,BERE
+./static/res/img/vestirsi1.png,./static/res/img/vestirsi2.png,./static/res/img/vestirsi3.png,VESTIRSI
+./static/res/img/scivolo1.png,./static/res/img/scivolo2.png,./static/res/img/scivolo3.png,SCIVOLO
+./static/res/img/collana1.png,./static/res/img/collana2.png,./static/res/img/collana3.png,COLLANA
