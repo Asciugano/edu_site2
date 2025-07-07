@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,21 +8,27 @@
 
     <link rel="stylesheet" href="../style.css">
     <link rel="shortcut icon" href="../../icon/icon.png" type="image/x-icon">
-</head>
-<body>
-<a href="/games">Torna ai giochi</a>
+  </head>
+  <body>
+    <a href="/games">Torna ai giochi</a>
 
-<p id="tempo"></p>
+    <button class="settings-btn" onclick="openSettings()">
+      <img src="../../icon/impostazioni.png" alt="impostazioni">
+      <span>Impostazioni</span>
+    </button>
 
-<div>
-    <h2 id="stringa">pochi test</h2>
-</div>
+    <p id="tempo"></p>
 
-<div>
-    <img src="#" id="img1">
-    <img src="#" id="img2">
-</div>
+    <div>
+      <h2 id="stringa">pochi test</h2>
+    </div>
 
-<script src="static/js/app.js"></script>
-</body>
+    <div>
+      <img src="#" id="img1">
+      <img src="#" id="img2">
+    </div>
+
+    <script src="static/js/app.js"></script>
+    <script src="../settings.js"></script>
+  </body>
 </html>

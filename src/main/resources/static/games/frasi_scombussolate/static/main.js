@@ -55,7 +55,7 @@ let round = 1;
 let punti = 0;
 
 let soluzione = [];
-let frase = in_sequenza
+let frase = '';
 
 const frase_container = document.querySelector('#frase-container');
 const risposta_container = document.querySelector('#risposta-container');
