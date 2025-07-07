@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Riordina la parola</title>
-  <link rel="stylesheet" href="../style.css">
-  <link rel="shortcut icon" href="../../icon/icon.png" type="image/x-icon">
-</head>
-<body>
+    <title>Riordina la parola</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../../icon/icon.png" type="image/x-icon">
+  </head>
+  <body>
 
-<a href="/games">Torna ai giochi</a>
+    <a href="/games">Torna ai giochi</a>
 
-<div>
-  <p id="tempo"></p>
-  <div>
-    <button onclick="showSolution()">soluzione</button>
-    <button>audio</button>
-  </div>
-</div>
+    <button class="settings-btn" onclick="openSettings()">
+      <img src="../../icon/impostazioni.png" alt="impostazioni">
+      <span>Impostazioni</span>
+    </button>
 
-<img src="#" alt="immagine">
+    <div>
+      <p id="tempo"></p>
+      <div>
+        <button onclick="showSolution()">soluzione</button>
+        <button>audio</button>
+      </div>
+    </div>
 
-<div>
-  <div class="container" id="parola_container">
-  </div>
-  <div class="container" id="risposta_container">
-  </div>
+    <img src="#" alt="immagine" id="img">
 
-  <button onclick="checkSolution()" class="hidden" id="check_solution_btn">Controlla</button>
-</div>
+    <div>
+      <div class="container" id="parola_container">
+      </div>
+      <div class="container" id="risposta_container">
+      </div>
 
-  <h3 id="solution"></h3>
+      <button onclick="checkSolution()" class="hidden" id="check_solution_btn">Controlla</button>
+    </div>
 
-<script src="static/app.js"></script>
-</body>
+    <h3 id="solution"></h3>
+
+    <script src="static/app.js"></script>
+    <script src="../settings.js"></script>
+  </body>
 </html>

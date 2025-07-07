@@ -55,7 +55,7 @@ let round = 1;
 let punti = 0;
 
 let soluzione = [];
-let frase = [];
+let frase = in_sequenza
 
 const frase_container = document.querySelector('#frase-container');
 const risposta_container = document.querySelector('#risposta-container');
@@ -157,6 +157,9 @@ const checkSolution = async () => {
 }
 
 const main = async () => {
+
+  localStorage.setItem('audio', '../audios/frasi_scombussolate.wav')
+
   frase_container.innerHTML = '';
   risposta_container.innerHTML = '';
   document.querySelector('#check-solution-btn').classList.add('hidden');
