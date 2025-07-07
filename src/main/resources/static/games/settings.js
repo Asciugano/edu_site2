@@ -15,10 +15,15 @@ function outsideClickListener(e) {
 }
 
 let audio_on = false;
+let last_audio = localStorage.getItem('audio');
+let audio = new Audio(localStorage.getItem('audio'));
 
 function playAudio() {
+  if (localStorage.getItem('audio') !== last_audio) {
+    audio = new Audio(localStorage.getItem('audio'));
+    last_audio = localStorage.getItem('audio');
+  }
   audio_on = !audio_on;
-  const audio = new Audio(localStorage.getItem('audio'));
   if (audio_on) {
     audio.play();
   }
