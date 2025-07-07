@@ -11,11 +11,15 @@
     <h1 class="title">Ecco i nostri contatti</h1>
 
     <div class="container">
-      <div class="contatto">
-        <h3>Diaferio Samuele <span class="contatti-roulo">(Programmatore)</span></h3>
-        <h6 class="contatti-roulo">(contattare in caso di problemi o bug)</h6>
-        <a href="mailto:diaferiosamuele@gmail.com" class="email">diaferiosamuele@gmail.com</a>
-      </div>
+      <ul class="elenco">
+        <li th:each="contatto:${contatti}">
+          <div class="contatto">
+            <h3 th:utext="${contatto.getName()} + ' <span class=\'contatti-roulo\'>(' + ${contatto.getRole()} + ')</span>'"></h3>
+            <h6 th:text="'(' + ${contatto.getExtra()} + ')'" class="contatti-roulo"></h6>
+            <a th:href="'mailto:' + ${contatto.getEmail()}" class="email" th:text="${contatto.getEmail()}"></a>
+          </div>
+        </li>
+      </ul>
     </div>
 
     <div class="footer-link-container">
