@@ -22,12 +22,14 @@ function openSettings() {
   btn.onclick = changeTheme;
 
   const icon = document.createElement('img')
-  icon.src = lightTheme ? '../static/icon/light.png' : '../static/icon/light.png';
+  icon.src = lightTheme ? '/icon/light.png' : '/icon/light.png';
 
   btn.appendChild(icon)
 
   menu.appendChild(label);
   menu.appendChild(btn);
+
+  document.body.appendChild(menu);
 }
 
 function changeTheme(theme = null) {
