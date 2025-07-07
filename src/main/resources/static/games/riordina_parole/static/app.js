@@ -141,7 +141,7 @@ async function reader() {
 
 async function main() {
 
-  localStorage.setItem('audio', '../audios/riordina_parole.wav')
+  localStorage.setItem('audio', '../../audio/riordina_parole.m4a');
   parola = await reader();
 
   let showParola = shuffleWord(parola)

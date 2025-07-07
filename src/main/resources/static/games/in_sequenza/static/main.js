@@ -156,7 +156,7 @@ const check_solution = async () => {
 
 const main = async () => {
 
-  localStorage.setItem('audio', '../audios/in_sequenza.wav')
+  localStorage.setItem('audio', '../../audios/in_sequenza.wav')
 
   imgs_container.querySelectorAll('div').forEach(item => imgs_container.removeChild(item));
   soluzione_container.querySelectorAll('div').forEach(item => soluzione_container.removeChild(item));

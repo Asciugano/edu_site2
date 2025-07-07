@@ -85,7 +85,7 @@ const checkSolution = async (risposta) => {
 let soluzione = null;
 
 const main = async () => {
-  localStorage.setItem('audio', '../audios/occhio_geometrico.wav')
+  localStorage.setItem('audio', '../../audios/occhio_geometrico.wav')
   container.querySelectorAll('button').forEach(button => container.removeChild(button));
 
   const res = await fetch('static/res/source.txt');

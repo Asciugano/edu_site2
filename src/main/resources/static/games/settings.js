@@ -14,8 +14,18 @@ function outsideClickListener(e) {
   document.removeEventListener('click', outsideClickListener);
 }
 
+let audio_on = false;
+
 function playAudio() {
-  const audio = localStorage.getItem('audio');
+  audio_on = !audio_on;
+  const audio = new Audio(localStorage.getItem('audio'));
+  if (audio_on) {
+    audio.play();
+  }
+  else {
+    audio.pause();
+    audio.currentTime = 0;
+  }
 }
 
 function openSettings() {

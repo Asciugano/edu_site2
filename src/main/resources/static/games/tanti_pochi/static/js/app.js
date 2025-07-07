@@ -102,7 +102,7 @@ let punteggio = 0;
 let immagine_giusta = null;
 
 function main() {
-  localStorage.setItem('audio', '../audios/tanti_pochi.wav')
+  localStorage.setItem('audio', '../../audios/tanti_pochi.wav')
   fetch('./static/res/source.txt')
     .then(res => res.text())
     .then(data => {

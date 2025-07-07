@@ -158,7 +158,7 @@ const checkSolution = async () => {
 
 const main = async () => {
 
-  localStorage.setItem('audio', '../audios/frasi_scombussolate.wav')
+  localStorage.setItem('audio', '../../audios/frasi_scombussolate.wav')
 
   frase_container.innerHTML = '';
   risposta_container.innerHTML = '';
