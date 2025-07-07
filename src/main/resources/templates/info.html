@@ -10,6 +10,12 @@
   </head>
   <body>
     <h1 class="title">EduGame</h1>
+
+    <button class="settings-btn" onclick="openSettings()">
+      <img th:src="@{/icon/impostazioni.png}" alt="impostazioni">
+      <span class="hidden">Impostazioni</span>
+    </button>
+
     <div class="container text">
       <h2><strong>Obiettivo del progetto</strong>: </h2>
       <p class="text">Il progetto si propone di sviluppare e realizzare giochi
@@ -34,6 +40,8 @@
 
       <a th:href="@{/games}">Vai al catalogo dei giochi</a>
       <a th:href="@{contatti}">Scopri i nostri contatti</a>
+
+      <script th:src="@{/js/main.js}"></script>
     </div>
   </body>
 </html>
