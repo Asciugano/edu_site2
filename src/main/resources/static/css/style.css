@@ -232,6 +232,10 @@ li {
   color: #2c3e50;
 }
 
+body.theme-dark .contatto h3 {
+  color: #f4f4f4;
+}
+
 .settings-btn img {
   max-width: 24px;
   max-height: 24px;
