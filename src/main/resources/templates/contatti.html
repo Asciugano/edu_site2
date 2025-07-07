@@ -10,6 +10,11 @@
   <body>
     <h1 class="title">Ecco i nostri contatti</h1>
 
+    <button class="settings-btn" onclick="openSettings()">
+      <img th:src="@{/icon/impostazioni.png}" alt="impostazioni">
+      <span class="hidden">Impostazioni</span>
+    </button>
+
     <div class="container">
       <ul class="elenco">
         <li th:each="contatto:${contatti}">

@@ -10,6 +10,12 @@
   </head>
   <body>
     <h1 class="title">Giochi</h1>
+
+    <button class="settings-btn" onclick="openSettings()">
+      <img th:src="@{/icon/impostazioni.png}" alt="impostazioni">
+      <span class="hidden">Impostazioni</span>
+    </button>
+
     <ul class="elenco">
       <li th:each="game:${games}">
         <div class="container">

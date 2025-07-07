@@ -42,6 +42,10 @@ body.theme-dark .email:hover {
   color: #44cc77;
 }
 
+body.theme-dark p {
+  color: #f4f4f4;
+}
+
 .container {
     background-color: #ffffff;
     border-radius: 10px;
@@ -278,7 +282,7 @@ li {
 
 .settings-menu {
   position: fixed;
-  top: 60px;
+  top: 65px;
   right: 20px;
   background: #fff;
   color: #333;

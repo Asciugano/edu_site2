@@ -4,6 +4,20 @@ document.querySelector('.title').addEventListener('click', () => {
   window.location.href = '/';
 });
 
+function outsideClickListener(e) {
+  const menu = document.querySelector('#settings-menu');
+  const settingBtn = document.querySelector('.settings-btn');
+
+  if (!menu) {
+    document.removeEventListener('click', outsideClickListener);
+    return;
+  }
+  if ((menu && menu.contains(e.target)) || (settingBtn && settingBtn.contains(e.target))) return;
+
+  menu.remove();
+  document.removeEventListener('click', outsideClickListener);
+}
+
 function openSettings() {
   const existingMenu = document.querySelector('#settings-menu');
   if (existingMenu) {
@@ -19,10 +33,11 @@ function openSettings() {
   label.textContent = 'Tema: ';
 
   const btn = document.createElement('button');
-  btn.onclick = changeTheme;
+  btn.classList.add('theme-btn');
+  btn.onclick = () => changeTheme();
 
   const icon = document.createElement('img')
-  icon.src = lightTheme ? '/icon/light.png' : '/icon/light.png';
+  icon.src = lightTheme ? '/icon/dark.png' : '/icon/light.png';
 
   btn.appendChild(icon)
 
@@ -30,10 +45,15 @@ function openSettings() {
   menu.appendChild(btn);
 
   document.body.appendChild(menu);
+
+  setTimeout(() => {
+    document.addEventListener('click', outsideClickListener)
+  }, 0);
 }
 
 function changeTheme(theme = null) {
   document.body.classList.remove('theme-light', 'theme-dark');
+
   if (!theme) {
     lightTheme = !lightTheme;
     document.body.classList.add(lightTheme ? 'theme-light' : 'theme-dark');
@@ -45,6 +65,14 @@ function changeTheme(theme = null) {
     document.body.classList.add(theme);
 
     localStorage.setItem('theme', theme);
+  }
+
+  const settigsMenu = document.querySelector('#settings-menu');
+  if (settigsMenu) {
+    const icon = settigsMenu.querySelector('img');
+    if (icon) {
+      icon.src = lightTheme ? '/icon/dark.png' : '/icon/light.png';
+    }
   }
 }
 

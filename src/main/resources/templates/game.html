@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title th:text="${game.getTitle()}"></title>
-  <link rel="stylesheet" th:href="@{/css/style.css}">
-  <link rel="shortcut icon" th:href="@{/icon/icon.png}" type="image/x-icon">
-</head>
-<body>
-<div class="container">
-  <h1 class="title" th:text="${game.getTitle()}"></h1>
-  <div th:if="${game != null}">
-    <p><strong>Nome: </strong><span th:text="${game.getTitle()}"></span></p>
-    <p><strong>Descrizione: </strong><span th:text="${game.getDescription()}"></span></p>
-  </div>
-  <div th:if="${game == null}">
-    <p class="error">Gioco non trovato</p>
-  </div>
+    <title th:text="${game.getTitle()}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="shortcut icon" th:href="@{/icon/icon.png}" type="image/x-icon">
+  </head>
+  <body>
 
-  <a th:href="${'/' + game.getPath()}">Gioca</a>
-  <a th:href="${game.getUrl()}">Scarica</a>
-  <a th:href="@{/games}">Torna alla lista dei giochi</a>
+    <button class="settings-btn" onclick="openSettings()">
+      <img th:src="@{/icon/impostazioni.png}" alt="impostazioni">
+      <span class="hidden">Impostazioni</span>
+    </button>
+
+    <div class="container">
+      <h1 class="title" th:text="${game.getTitle()}"></h1>
+      <div th:if="${game != null}">
+        <p><strong>Nome: </strong><span th:text="${game.getTitle()}"></span></p>
+        <p><strong>Descrizione: </strong><span th:text="${game.getDescription()}"></span></p>
+      </div>
+      <div th:if="${game == null}">
+        <p class="error">Gioco non trovato</p>
+      </div>
+
+      <a th:href="${'/' + game.getPath()}">Gioca</a>
+      <a th:href="${game.getUrl()}">Scarica</a>
+      <a th:href="@{/games}">Torna alla lista dei giochi</a>
 
       <script th:src="@{/js/main.js}"></script>
-</div>
-</body>
+    </div>
+  </body>
 </html>
