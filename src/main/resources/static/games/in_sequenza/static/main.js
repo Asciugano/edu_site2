@@ -44,6 +44,12 @@ window.alert = (msg, timeout = 2000) => {
   });
 };
 
+document.addEventListener('touchmove', (e) => {
+  if (draggedElement) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
 let time = 0;
 let timerID = setInterval(() => {
   time++;
@@ -122,14 +128,19 @@ allowDropZone(imgs_container);
 
 const check_solution = async () => {
   let err = false;
-  soluzione_container.querySelectorAll('img').forEach(async (item, i) => {
-    const name_img = soluzione[i].split('/')
-    const src = item.src.split('/')
+  const imgs = soluzione_container.querySelectorAll('img');
+
+  for (let i = 0; i < imgs.length; i++) {
+    const item = imgs[i];
+    const name_img = soluzione[i].split('/');
+    const src = item.src.split('/');
+
     if (src[src.length - 1] !== name_img[name_img.length - 1]) {
       err = true;
-      await alert('Sbagliato')
+      await alert('Sbagliato');
+      break; // interrompi appena sbagliato
     }
-  });
+  }
 
   if (!err) {
     punti++;
@@ -139,8 +150,7 @@ const check_solution = async () => {
   if (round < maxRound) {
     round++;
     main();
-  }
-  else {
+  } else {
     clearInterval(timerID);
 
     localStorage.setItem('punteggio', punti);
@@ -149,10 +159,9 @@ const check_solution = async () => {
     localStorage.setItem('path', 'in_sequenza/index.html');
 
     await alert('Gioco finito');
-
     window.location.href = '../risultati.html';
   }
-}
+};
 
 const main = async () => {
 
