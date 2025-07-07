@@ -121,7 +121,7 @@ async function loadCoppie() {
 }
 
 async function main() {
-  localStorage.setItem('audio', '../../audios/perfect_match.wav')
+  localStorage.setItem('audio', '../../audio/perfect_match.m4a')
   img_container.innerHTML = '';
   parole_container.innerHTML = '';
 

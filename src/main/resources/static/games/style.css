@@ -187,12 +187,6 @@ a:hover {
   box-shadow: 0 0 12px rgba(0, 191, 255, 0.6);
 }
 
-.result-box p {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #27ae60;
-  margin: 0;
-}
 
 .item.dragging {
   opacity: 0.5;

@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Risultati</title>
     <link rel="stylesheet" href="result_style.css">
     <link rel="shortcut icon" href="../icon/icon.png" type="image/x-icon">
-</head>
-<body>
+  </head>
+  <body>
 
-<a href="/games">Torna ai giochi</a>
+    <a href="/games">Torna ai giochi</a>
 
-<h1>Risultati</h1>
+    <button class="settings-btn" onclick="openSettings()">
+      <img src="../icon/impostazioni.png" alt="impostazioni">
+      <span>Impostazioni</span>
+    </button>
 
-<div class="result-box">
-    <h2>Punti:</h2>
-    <p id="punti"></p>
+    <h1>Risultati</h1>
 
-    <h2>Tempo:</h2>
-    <p id="tempo"></p>
+    <div class="result-box">
+      <h2>Punti:</h2>
+      <p id="punti"></p>
 
-    <button onclick="restart()">Ricomincia</button>
-</div>
+      <h2>Tempo:</h2>
+      <p id="tempo"></p>
 
-<script>
+      <button onclick="restart()">Ricomincia</button>
+    </div>
+
+    <script>
     document.querySelector('#punti').innerHTML = localStorage.getItem('punteggio') + '/' + localStorage.getItem('max-round') || 0;
     document.querySelector('#tempo').innerHTML = localStorage.getItem('tempo') + 's' || '0s';
 
     const restart = () => {
-        window.location.href = localStorage.getItem('path');
-        localStorage.clear();
+      window.location.href = localStorage.getItem('path');
+      localStorage.clear();
     };
-</script>
-
-</body>
+    </script>
+    <script src="./settings.js"></script>
+  </body>
 </html>
